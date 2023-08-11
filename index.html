@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CaR2Nz Bank</title>
+    <script src="bank.js"></script>
+    <style>
+        .register fieldset,.showbal fieldset,.deposit fieldset,.withdrawl fieldset,.transfer fieldset,.user fieldset{
+            width: 300px;
+            height: 200px;
+        }
+        .container{
+            display: flex;
+            flex-wrap: wrap;
+        }
+        .all_account fieldset{
+            width: 400px;
+            height: 200px;
+        }
+        .transaction{
+            width: 50%;
+            height: 400px;
+        }
+        .transaction div table{
+            
+            border-collapse: collapse;
+            text-align: center;
+        }
+        .title{
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="title">
+        <h1>Banking System</h1>
+    </div>
+    <div class="container">
+        <div class="register">
+            <fieldset>
+                    <legend>Register</legend>
+                   
+                    <input type="number" required placeholder="Account Number" id="acc_num" maxlength="3" size="3" disabled>
+                    <button onclick="randomAcc_no()">Random Acc No</button><br><br>
+                    
+                    <input type="text" id="acc_name" placeholder="Enter your Name" required><br><br>
+                  
+                    <input type="number" id="acc_bal" placeholder="Enter initial balance" required><br><br>
+                    <!-- <button type="submit" onclick="createAcc()">Create Account</button> -->
+                    <input type="submit" value="Create Account" onclick="createAcc()">
+
+                    <p id="reg_msg"></p>
+        
+            </fieldset>
+        </div>
+        <div class="showbal">
+            <fieldset>
+                <legend>Show Balance</legend>
+                <input type="number" id="sh_bal" placeholder="Enter account Number"><button onclick="show_bal()">Show Balance</button><br>
+                <h3 id="print_bal"></h3>
+            </fieldset>
+        </div>
+        <div class="deposit">
+            <fieldset>
+                <legend>Deposit</legend>
+
+                <input type="number" id="d_acc_no" placeholder="Enter Account Number"><br><br>
+                <input type="number" id="d_amt" placeholder="Enter Deposit Amount"><br><br>
+                <button onclick="deposit()">Deposit</button>
+                <h3 id="d_bal"></h3>
+            </fieldset>
+            
+
+        </div>
+
+        <div class="withdrawl">
+            <fieldset>
+                <legend>Withdrawl</legend>
+                <input type="number" id="w_acc_no" placeholder="Enter Account Number"><br><br>
+                <input type="number" id="w_amt" placeholder="Enter withdrawl amount"><br><br>
+                <button onclick="withdraw()">Withdraw</button>
+                <h3 id="w_bal"></h3>
+            </fieldset>
+        </div>
+
+        <div class="transfer">
+            <fieldset>
+                <legend>Transfer</legend>
+                <input type="number" id="acc_no1" placeholder="Enter your account no"><br><br>
+                <input type="number" id="acc_no2" placeholder="Enter second account no"><br><br>
+                <input type="number" id="t_amt" placeholder="Enter amount to transfer"><br><br>
+                <button onclick="transfer()">Transfer</button>
+                <h3 id="t_text"></h3>
+            </fieldset>
+        </div>
+        <div class="all_account">
+            <fieldset>
+                <legend>Get All Account details</legend>
+                <button onclick="print_all_details()">Get all Account details</button>
+                <div id="all_acc_det"></div>
+            </fieldset>
+        </div>
+        <div class="user">
+            <fieldset>
+                <legend>Print User Details</legend>
+                <input type="number" id="user_det" placeholder="Enter Account Number">
+                <button onclick="print_user_details()">Print</button>
+                <div id="print_user"></div>
+            </fieldset>
+        </div>
+    </div>
+    <div class="transaction">
+        <fieldset>
+            <legend>Print Transaction</legend>
+            <input type="number" placeholder="Enter Account number" id="t_acc_no">
+            <button onclick="print_transaction()">Print Transaction</button><br><br>
+            <div id="print_trans"></div>
+        </fieldset>
+    </div>
+</body>
+</html>
